@@ -28,10 +28,11 @@ namespace Final_Assignment2
         {
             InitializeComponent();
         }
-
+        
+        //opens the csv file correctly
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //opens file
+            
             openFileDialog1.FileName = "";
             openFileDialog1.Filter = "CSV Files|*.csv";
             DialogResult result = openFileDialog1.ShowDialog();
@@ -69,6 +70,7 @@ namespace Final_Assignment2
             }
         }
 
+        //This does the calculation for velocity using time and altitude
         void derivative()
         {
             for (int i = 1; i < table.Count; i++)
@@ -78,6 +80,7 @@ namespace Final_Assignment2
                 table[i].velocity = dA / dt;
             }
         }
+        //This does the calculation for acceleration using time and velocity
         void secondaryderivative()
         {
             for (int i = 1; i < table.Count; i++)
@@ -88,6 +91,7 @@ namespace Final_Assignment2
             }
         }
 
+        //This saves the file in csv file correctly
         private void saveCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = "";
@@ -113,6 +117,7 @@ namespace Final_Assignment2
             }
         }
 
+        //This saves the file in the png file corretly
         private void savePNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.FileName = "";
@@ -131,6 +136,7 @@ namespace Final_Assignment2
             }
         }
 
+        //This puts the altitude results into a graph
         private void altitudeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chart1.Series.Clear();
@@ -154,6 +160,7 @@ namespace Final_Assignment2
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
+        //This puts the velocity results into a graph
         private void velocityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chart1.Series.Clear();
@@ -177,6 +184,7 @@ namespace Final_Assignment2
             chart1.ChartAreas[0].RecalculateAxesScale();
         }
 
+        //This puts the acceleration results into a graph
         private void accelerationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             chart1.Series.Clear();
